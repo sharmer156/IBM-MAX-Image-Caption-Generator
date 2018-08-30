@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/IBM/MAX-Image-Caption-Generator.svg?branch=master)](https://travis-ci.org/IBM/MAX-Image-Caption-Generator)
 
 # IBM Code Model Asset Exchange: Show and Tell Image Caption Generator
-WEB APP connect https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/
+WEB APP  https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/
 
 ![](https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/blob/master/doc/source/images/webui.png)
  
@@ -30,8 +30,8 @@ WEB APP connect https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/
 ```
 $ git clone https://github.com/IBM/MAX-Image-Caption-Generator.git
 $ cd MAX-Image-Caption-Generator
-docker build -t max-im2txt  .                //max-im2txt  .两个空格不可少
-docker run -it -p 5000:5000 max-im2txt       //BUG:does not exist or no pull access.需要
+docker build -t max-im2txt  .                //max-im2txt  . 
+docker run -it -p 5000:5000 max-im2txt       //BUG:does not exist or no pull access.
 docker build -t max-image-caption-generator .
 docker run -it -p 5000:5000 max-image-caption-generator //WARNING: Do not use the development server in a production environment.
 
