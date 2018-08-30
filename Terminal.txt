@@ -1,0 +1,355 @@
+chz@ubuntu:~$ git clone https://github.com/IBM/MAX-Image-Caption-Generator
+Cloning into 'MAX-Image-Caption-Generator'...
+remote: Counting objects: 103, done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 103 (delta 5), reused 1 (delta 0), pack-reused 88
+Receiving objects: 100% (103/103), 730.75 KiB | 770.00 KiB/s, done.
+Resolving deltas: 100% (28/28), done.
+chz@ubuntu:~$ cd MAX-Image-Caption-Generator
+chz@ubuntu:~/MAX-Image-Caption-Generator$ docker build -t max-im2txt  .
+The program 'docker' is currently not installed. You can install it by typing:
+sudo apt install docker.io
+chz@ubuntu:~/MAX-Image-Caption-Generator$ sudo apt install docker.io
+[sudo] password for chz: 
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+chz@ubuntu:~/MAX-Image-Caption-Generator$ sudo apt install docker.io
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+chz@ubuntu:~/MAX-Image-Caption-Generator$ root
+No command 'root' found, did you mean:
+ Command 'proot' from package 'proot' (universe)
+ Command 'rootv' from package 'xawtv' (universe)
+ Command 'rott' from package 'rott' (multiverse)
+root: command not found
+chz@ubuntu:~/MAX-Image-Caption-Generator$ su
+Password: 
+su: Authentication failure
+chz@ubuntu:~/MAX-Image-Caption-Generator$ su
+Password: 
+su: Authentication failure
+chz@ubuntu:~/MAX-Image-Caption-Generator$ su
+Password: 
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# sudo apt install docker.io\
+> 
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# sudo apt install docker.io
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# sudo rm /var/cache/apt/archives/lock
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# sudo rm /var/lib/dpkg/lock
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# sudo apt install docker.io
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.13.0-21 linux-headers-4.13.0-21-generic
+  linux-headers-4.13.0-32 linux-headers-4.13.0-32-generic
+  linux-image-4.13.0-21-generic linux-image-4.13.0-32-generic
+  linux-image-extra-4.13.0-21-generic linux-image-extra-4.13.0-32-generic
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  bridge-utils cgroupfs-mount ubuntu-fan
+Suggested packages:
+  aufs-tools btrfs-tools debootstrap docker-doc rinse zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils cgroupfs-mount docker.io ubuntu-fan
+0 upgraded, 4 newly installed, 0 to remove and 124 not upgraded.
+Need to get 15.3 MB of archives.
+After this operation, 69.0 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu artful/main amd64 bridge-utils amd64 1.5-9ubuntu2 [29.2 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu artful/universe amd64 cgroupfs-mount all 1.4 [6,320 B]
+Get:3 http://us.archive.ubuntu.com/ubuntu artful/universe amd64 docker.io amd64 1.13.1-0ubuntu6 [15.2 MB]
+Get:4 http://us.archive.ubuntu.com/ubuntu artful-updates/main amd64 ubuntu-fan all 0.12.9~17.10.1 [34.5 kB]
+Fetched 15.3 MB in 1min 14s (206 kB/s)                                         
+Selecting previously unselected package bridge-utils.
+(Reading database ... 253279 files and directories currently installed.)
+Preparing to unpack .../bridge-utils_1.5-9ubuntu2_amd64.deb ...
+Unpacking bridge-utils (1.5-9ubuntu2) ...
+Selecting previously unselected package cgroupfs-mount.
+Preparing to unpack .../cgroupfs-mount_1.4_all.deb ...
+Unpacking cgroupfs-mount (1.4) ...
+Selecting previously unselected package docker.io.
+Preparing to unpack .../docker.io_1.13.1-0ubuntu6_amd64.deb ...
+Unpacking docker.io (1.13.1-0ubuntu6) ...
+Selecting previously unselected package ubuntu-fan.
+Preparing to unpack .../ubuntu-fan_0.12.9~17.10.1_all.deb ...
+Unpacking ubuntu-fan (0.12.9~17.10.1) ...
+Setting up docker.io (1.13.1-0ubuntu6) ...
+Adding group `docker' (GID 129) ...
+Done.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Processing triggers for ureadahead (0.100.0-20) ...
+Setting up cgroupfs-mount (1.4) ...
+Setting up bridge-utils (1.5-9ubuntu2) ...
+Setting up ubuntu-fan (0.12.9~17.10.1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service → /lib/systemd/system/ubuntu-fan.service.
+Processing triggers for systemd (234-2ubuntu12.1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Processing triggers for ureadahead (0.100.0-20) ...
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# docker
+
+Usage:	docker COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default "/root/.docker")
+  -D, --debug              Enable debug mode
+      --help               Print usage
+  -H, --host list          Daemon socket(s) to connect to (default [])
+  -l, --log-level string   Set the logging level ("debug", "info", "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/root/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/root/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/root/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+  container   Manage containers
+  image       Manage images
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  volume      Manage volumes
+
+Commands:
+  attach      Attach to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker COMMAND --help' for more information on a command.
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# docker build -t mat-im2txt  .Sending build context to Docker daemon 949.8 kB
+Step 1/10 : FROM codait/max-base
+latest: Pulling from codait/max-base
+cc1a78bfd46b: Pull complete 
+c9741e205978: Pull complete 
+0326437908ca: Pull complete 
+997e8d39e48c: Pull complete 
+2d769c34e112: Pull complete 
+c190275183b3: Pull complete 
+827381531a75: Pull complete 
+c9adbd209828: Pull complete 
+4409128630bc: Pull complete 
+d7d4e91c4984: Pull complete 
+a4c1f2aab80a: Pull complete 
+Digest: sha256:5a36b1b1b28308b85abdd1f63e780760016cd6dd3c4fb035bf5ff6b2c3c733e1
+Status: Downloaded newer image for codait/max-base:latest
+ ---> 8fd3f9cd5253
+Step 2/10 : ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/tf/im2txt
+ ---> Running in a31b1795b9de
+ ---> 3bf69f15c182
+Removing intermediate container a31b1795b9de
+Step 3/10 : ARG model_file=im2txt_ckpt.tar.gz
+ ---> Running in 3bc9385288b7
+ ---> e7820618f32e
+Removing intermediate container 3bc9385288b7
+Step 4/10 : WORKDIR /workspace
+ ---> 046b73c668ca
+Removing intermediate container 0cfee36b7d33
+Step 5/10 : RUN wget -nv ${model_bucket}/${model_file} --output-document=/workspace/assets/${model_file}
+ ---> Running in 07327cdc4b24
+docker run -it -p 5000:5000 max-im2txt
+^Z
+[1]+  Stopped                 docker build -t mat-im2txt .
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# docker build -t mat-im2txt  .Sending build context to Docker daemon 949.8 kB
+Step 1/10 : FROM codait/max-base
+ ---> 8fd3f9cd5253
+Step 2/10 : ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/tf/im2txt
+ ---> Using cache
+ ---> 3bf69f15c182
+Step 3/10 : ARG model_file=im2txt_ckpt.tar.gz
+ ---> Using cache
+ ---> e7820618f32e
+Step 4/10 : WORKDIR /workspace
+ ---> Using cache
+ ---> 046b73c668ca
+Step 5/10 : RUN wget -nv ${model_bucket}/${model_file} --output-document=/workspace/assets/${model_file}
+ ---> Running in 3c5b8d38670e
+2018-08-30 05:53:43 URL:http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/tf/im2txt/im2txt_ckpt.tar.gz [276638750/276638750] -> "/workspace/assets/im2txt_ckpt.tar.gz" [1]
+ ---> 339be8f999bb
+Removing intermediate container 3c5b8d38670e
+Step 6/10 : RUN tar -x -C assets/ -f assets/${model_file} -v
+ ---> Running in 572a71b36d26
+./checkpoint/
+./checkpoint/checkpoint
+./checkpoint/model2.ckpt-2000000.data-00000-of-00001
+./checkpoint/model2.ckpt-2000000.index
+./checkpoint/model2.ckpt-2000000.meta
+ ---> 79a28b3203fe
+Removing intermediate container 572a71b36d26
+Step 7/10 : RUN pip install tensorflow &&     pip install Pillow
+ ---> Running in 119a60851ae3
+Collecting tensorflow
+  Downloading https://files.pythonhosted.org/packages/04/7e/a484776c73b1431f2b077e13801531e966113492552194fe721e6ef88d5d/tensorflow-1.10.1-cp36-cp36m-manylinux1_x86_64.whl (58.4MB)
+Collecting numpy<=1.14.5,>=1.13.3 (from tensorflow)
+  Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=15)",)': /simple/numpy/
+  Downloading https://files.pythonhosted.org/packages/68/1e/116ad560de97694e2d0c1843a7a0075cc9f49e922454d32f49a80eb6f1f2/numpy-1.14.5-cp36-cp36m-manylinux1_x86_64.whl (12.2MB)
+Collecting absl-py>=0.1.6 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/a7/86/67f55488ec68982270142c340cd23cd2408835dc4b24bd1d1f1e114f24c3/absl-py-0.4.1.tar.gz (88kB)
+Collecting tensorboard<1.11.0,>=1.10.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/c6/17/ecd918a004f297955c30b4fffbea100b1606c225dbf0443264012773c3ff/tensorboard-1.10.0-py3-none-any.whl (3.3MB)
+Collecting grpcio>=1.8.6 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/31/17/0f79ff2f56018aa0e12ffb1cc8086df6bd6cfc71efea0df64fe78d569f71/grpcio-1.14.1-cp36-cp36m-manylinux1_x86_64.whl (9.3MB)
+Requirement already satisfied: wheel>=0.26 in /opt/conda/lib/python3.6/site-packages (from tensorflow) (0.31.1)
+Collecting gast>=0.2.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/5c/78/ff794fcae2ce8aa6323e789d1f8b3b7765f601e7702726f430e814822b96/gast-0.2.0.tar.gz
+Collecting protobuf>=3.6.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/c2/f9/28787754923612ca9bfdffc588daa05580ed70698add063a5629d1a4209d/protobuf-3.6.1-cp36-cp36m-manylinux1_x86_64.whl (1.1MB)
+Collecting astor>=0.6.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/35/6b/11530768cac581a12952a2aad00e1526b89d242d0b9f59534ef6e6a1752f/astor-0.7.1-py2.py3-none-any.whl
+Collecting termcolor>=1.1.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz
+Requirement already satisfied: six>=1.10.0 in /opt/conda/lib/python3.6/site-packages (from tensorflow) (1.11.0)
+Collecting setuptools<=39.1.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/8c/10/79282747f9169f21c053c562a0baa21815a8c7879be97abd930dbcf862e8/setuptools-39.1.0-py2.py3-none-any.whl (566kB)
+Collecting markdown>=2.6.8 (from tensorboard<1.11.0,>=1.10.0->tensorflow)
+  Downloading https://files.pythonhosted.org/packages/6d/7d/488b90f470b96531a3f5788cf12a93332f543dbab13c423a5e7ce96a0493/Markdown-2.6.11-py2.py3-none-any.whl (78kB)
+Requirement already satisfied: werkzeug>=0.11.10 in /opt/conda/lib/python3.6/site-packages (from tensorboard<1.11.0,>=1.10.0->tensorflow) (0.14.1)
+Building wheels for collected packages: absl-py, gast, termcolor
+  Running setup.py bdist_wheel for absl-py: started
+  Running setup.py bdist_wheel for absl-py: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/78/a3/a3/689120b95c26b9a21be6584b4b482b0fda0a1b60efd30af558
+  Running setup.py bdist_wheel for gast: started
+  Running setup.py bdist_wheel for gast: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/9a/1f/0e/3cde98113222b853e98fc0a8e9924480a3e25f1b4008cedb4f
+  Running setup.py bdist_wheel for termcolor: started
+  Running setup.py bdist_wheel for termcolor: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/7c/06/54/bc84598ba1daf8f970247f550b175aaaee85f68b4b0c5ab2c6
+Successfully built absl-py gast termcolor
+Installing collected packages: numpy, absl-py, markdown, setuptools, protobuf, tensorboard, grpcio, gast, astor, termcolor, tensorflow
+  Found existing installation: setuptools 39.2.0
+    Uninstalling setuptools-39.2.0:
+      Successfully uninstalled setuptools-39.2.0
+Successfully installed absl-py-0.4.1 astor-0.7.1 gast-0.2.0 grpcio-1.14.1 markdown-2.6.11 numpy-1.14.5 protobuf-3.6.1 setuptools-39.1.0 tensorboard-1.10.0 tensorflow-1.10.1 termcolor-1.1.0
+Collecting Pillow
+  Downloading https://files.pythonhosted.org/packages/d1/24/f53ff6b61b3d728b90934bddb4f03f8ab584a7f49299bf3bde56e2952612/Pillow-5.2.0-cp36-cp36m-manylinux1_x86_64.whl (2.0MB)
+Installing collected packages: Pillow
+Successfully installed Pillow-5.2.0
+ ---> cd69eb8df85e
+Removing intermediate container 119a60851ae3
+Step 8/10 : COPY . /workspace
+ ---> fd055745be6b
+Removing intermediate container 1a8b30d2fbc0
+Step 9/10 : EXPOSE 5000
+ ---> Running in a760833feffb
+ ---> 7abc4bfc6d41
+Removing intermediate container a760833feffb
+Step 10/10 : CMD python app.py
+ ---> Running in 5ea1e2ec6c69
+ ---> 6cdd0a040f4f
+Removing intermediate container 5ea1e2ec6c69
+Successfully built 6cdd0a040f4f
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# docker run -it -p 5000:5000 max-im2txt
+Unable to find image 'max-im2txt:latest' locally
+docker: Error response from daemon: repository max-im2txt not found: does not exist or no pull access.
+See 'docker run --help'.
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# docker run -it -p 5000:5000 max-image-caption-generator
+Unable to find image 'max-image-caption-generator:latest' locally
+docker: Error response from daemon: repository max-image-caption-generator not found: does not exist or no pull access.
+See 'docker run --help'.
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# $ docker build -t max-image-caption-generator .
+$: command not found
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# docker build -t max-image-caption-generator .
+Sending build context to Docker daemon 949.8 kB
+Step 1/10 : FROM codait/max-base
+ ---> 8fd3f9cd5253
+Step 2/10 : ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/tf/im2txt
+ ---> Using cache
+ ---> 3bf69f15c182
+Step 3/10 : ARG model_file=im2txt_ckpt.tar.gz
+ ---> Using cache
+ ---> e7820618f32e
+Step 4/10 : WORKDIR /workspace
+ ---> Using cache
+ ---> 046b73c668ca
+Step 5/10 : RUN wget -nv ${model_bucket}/${model_file} --output-document=/workspace/assets/${model_file}
+ ---> Using cache
+ ---> 339be8f999bb
+Step 6/10 : RUN tar -x -C assets/ -f assets/${model_file} -v
+ ---> Using cache
+ ---> 79a28b3203fe
+Step 7/10 : RUN pip install tensorflow &&     pip install Pillow
+ ---> Using cache
+ ---> cd69eb8df85e
+Step 8/10 : COPY . /workspace
+ ---> Using cache
+ ---> fd055745be6b
+Step 9/10 : EXPOSE 5000
+ ---> Using cache
+ ---> 7abc4bfc6d41
+Step 10/10 : CMD python app.py
+ ---> Using cache
+ ---> 6cdd0a040f4f
+Successfully built 6cdd0a040f4f
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# docker run -it -p 5000:5000 max-image-caption-generator
+2018-08-30 06:21:59.333237: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+172.17.0.1 - - [30/Aug/2018 06:22:42] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:22:42] "GET /swaggerui/droid-sans.css HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:22:42] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:22:42] "GET /swaggerui/swagger-ui.css HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:22:42] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:22:42] "GET /swaggerui/favicon-16x16.png HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:22:42] "GET /swagger.json HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:26:01] "POST /model/predict HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:26:16] "POST /model/predict HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:26:20] "POST /model/predict HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:26:34] "GET /model/predict HTTP/1.1" 405 -
+172.17.0.1 - - [30/Aug/2018 06:26:34] "GET /favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [30/Aug/2018 06:37:05] "POST /model/predict HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 06:37:32] "GET /model/predict HTTP/1.1" 405 -
+172.17.0.1 - - [30/Aug/2018 06:54:36] "POST /model/predict HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2018 07:25:57] "GET /swagger.json HTTP/1.1" 200 -
+$ docker build^Croot@ubuntu:/home/chz/MAX-Image-Caption-Generator# Step 3/10 : A2txt_ckpt.tar.gz^C
+root@ubuntu:/home/chz/MAX-Image-Caption-Generator# 
