@@ -12,8 +12,6 @@ WEB APP  https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/
 	* [easy start](#easy-start)
 	* [1 windows error](#1-windows-error)
 	* [2 ubuntu BUG](#2-ubuntu-bug)
-	* [bug1 Could not get lock](#bug1-could-not-get-lock)
-	* [bug2 URL connect erro(404?)](#bug2-url-connect-erro404)
 	* [Model Metadata](#model-metadata)
 	* [References](#references)
 	* [Licenses](#licenses)
@@ -84,7 +82,7 @@ image operating system "linux" cannot be used on this platform
 so it can't be run in the windows
 
 ## 2 ubuntu BUG
-## bug1 Could not get lock
+### bug1 Could not get lock
 
 ```
 sudo apt install docker.io
@@ -100,7 +98,7 @@ https://blog.csdn.net/kevin_android_123456/article/details/8174343
 sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock
 ```
-## bug2 URL connect erro(404?)
+### bug2 URL connect erro(404?)
 run
 ```
 docker build -t max-im2txt  .
