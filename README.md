@@ -36,7 +36,7 @@ docker build -t max-image-caption-generator .
 docker run -it -p 5000:5000 max-image-caption-generator //WARNING: Do not use the development server in a production environment.
 
 ```
-see the datial in [Terminal.txt](#Terminal.txt)
+see the datial in [Terminal.txt](/Terminal.txt)
 
 -  docker build max-im2txt  . 
 contait 10 Steps 
