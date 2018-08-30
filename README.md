@@ -1,6 +1,146 @@
 [![Build Status](https://travis-ci.org/IBM/MAX-Image-Caption-Generator.svg?branch=master)](https://travis-ci.org/IBM/MAX-Image-Caption-Generator)
 
 # IBM Code Model Asset Exchange: Show and Tell Image Caption Generator
+WEB APP connect https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/
+
+![](https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/blob/master/doc/source/images/webui.png)
+ 
+
+**CONTENT** 
+
+* [IBM Code Model Asset Exchange: Show and Tell Image Caption Generator](#ibm-code-model-asset-exchange-show-and-tell-image-caption-generator)
+	* [easy start](#easy-start)
+	* [1 windows error](#1-windows-error)
+	* [2 ubuntu BUG](#2-ubuntu-bug)
+	* [bug1 Could not get lock](#bug1-could-not-get-lock)
+	* [bug2 URL connect erro(404?)](#bug2-url-connect-erro404)
+	* [Model Metadata](#model-metadata)
+	* [References](#references)
+	* [Licenses](#licenses)
+	* [Pre-requisites:](#pre-requisites)
+* [Steps](#steps)
+	* [Deploy from Docker Hub](#deploy-from-docker-hub)
+	* [Deploy on Kubernetes](#deploy-on-kubernetes)
+	* [Run Locally](#run-locally)
+	* [Links](#links)
+
+## easy start
+** $ git clone -->$ cd-->$ docker build-->$ docker run **
+### mian comande
+```
+$ git clone https://github.com/IBM/MAX-Image-Caption-Generator.git
+$ cd MAX-Image-Caption-Generator
+docker build -t max-im2txt  .                //max-im2txt  .两个空格不可少
+docker run -it -p 5000:5000 max-im2txt       //BUG:does not exist or no pull access.需要
+docker build -t max-image-caption-generator .
+docker run -it -p 5000:5000 max-image-caption-generator //WARNING: Do not use the development server in a production environment.
+
+```
+see the datial in [Terminal.txt](#Terminal.txt)
+
+-  docker build max-im2txt  . 
+contait 10 Steps 
+<!--auto run--> 
+
+```
+Step 1/10 : FROM codait/max-base
+Step 2/10 : ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/tf/im2txt
+Step 3/10 : ARG model_file=im2txt_ckpt.tar.gz
+Step 4/10 : WORKDIR /workspace
+Step 5/10 : RUN wget -nv ${model_bucket}/${model_file} --output-document=/workspace/assets/${model_file}
+Step 6/10 : RUN tar -x -C assets/ -f assets/${model_file} -v
+Step 7/10 : RUN pip install tensorflow &&     pip install Pillow
+Step 8/10 : COPY . /workspace
+Step 9/10 : EXPOSE 5000
+Step 10/10 : CMD python app.py
+
+```
+- docker build -t max-image-caption-generator .
+also contait 10 Steps
+<!--auto run--> 
+
+```
+Step 1/10 : FROM codait/max-base
+Step 2/10 : ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/tf/im2txt
+Step 3/10 : ARG model_file=im2txt_ckpt.tar.gz
+Step 4/10 : WORKDIR /workspace
+Step 5/10 : RUN wget -nv ${model_bucket}/${model_file} --output-document=/workspace/assets/${model_file}
+Step 6/10 : RUN tar -x -C assets/ -f assets/${model_file} -v
+Step 7/10 : RUN pip install tensorflow &&     pip install Pillow
+Step 8/10 : COPY . /workspace
+Step 9/10 : EXPOSE 5000
+Step 10/10 : CMD python app.py
+
+```
+## 1 windows error
+
+```
+docker build -t max-im2txt  .
+Sending build context to Docker daemon  963.1kB
+Step 1/10 : FROM codait/max-base
+latest: Pulling from codait/max-base
+image operating system "linux" cannot be used on this platform
+```
+so it can't be run in the windows
+
+## 2 ubuntu BUG
+## bug1 Could not get lock
+
+```
+sudo apt install docker.io
+```
+```
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+```
+** fix it **
+https://blog.csdn.net/kevin_android_123456/article/details/8174343
+
+```
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+```
+## bug2 URL connect erro(404?)
+run
+```
+docker build -t max-im2txt  .
+
+```
+but can't connect the this URL
+```
+2018-08-30 05:53:43 URL:http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/tf/im2txt/im2txt_ckpt.tar.gz [276638750/276638750] -> "/workspace/assets/im2txt_ckpt.tar.gz" [1]
+
+```
+```
+Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=15)",)': /simple/numpy/
+
+```
+img
+![](example.jpeg)
+img
+```
+{
+  "status": "ok",
+  "predictions": [
+    {
+      "index": "0",
+      "caption": "a man in a suit and tie standing in front of a building .",
+      "probability": 0.0005420378725991916
+    },
+    {
+      "index": "1",
+      "caption": "a man in a suit and tie standing next to a building .",
+      "probability": 0.00014754194193780548
+    },
+    {
+      "index": "2",
+      "caption": "a man in a suit and tie standing in a street .",
+      "probability": 0.00013819170399036678
+    }
+  ]
+}
+
+```
 
 This repository contains code to instantiate and deploy an image caption generation model. This model generates captions from a fixed vocabulary that describe the contents of images in the [COCO Dataset](http://cocodataset.org/#home). The model consists of an _encoder_ model - a deep convolutional net using the Inception-v3 architecture trained on [ImageNet-2012 data](http://www.image-net.org/challenges/LSVRC/2012/) - and a _decoder_ model - an LSTM network that is trained conditioned on the encoding from the image _encoder_ model. The input to the model is an image, and the output is a sentence describing the image content.
 
